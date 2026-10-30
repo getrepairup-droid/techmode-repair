@@ -299,10 +299,10 @@ function updateDiagnosisCard() {
 
 /**
  * Configure your FormSubmit recipient email here.
- * Official TechMode contact: info@techmodeusa.com
- * FormSubmit endpoint: https://formsubmit.co/ajax/info@techmodeusa.com
+ * Recipient: itzcoatl16@hotmail.com
+ * FormSubmit endpoint: https://formsubmit.co/ajax/itzcoatl16@hotmail.com
  */
-const FORMSUBMIT_RECIPIENT_EMAIL = 'info@techmodeusa.com';
+const FORMSUBMIT_RECIPIENT_EMAIL = 'itzcoatl16@hotmail.com';
 
 function initQuoteForm() {
   const form = document.getElementById('console-repair-form');
@@ -410,11 +410,20 @@ function initQuoteForm() {
               <p style="margin-bottom:12px;line-height:1.5;">Our Cedar Hill bench technicians will review your issue and reach out to you at <strong>${escapeHtml(phone)}</strong> shortly with your estimate and turnaround time.</p>
               <div style="background:#f0fdf4;padding:12px 14px;border-radius:8px;border:1px solid #bbf7d0;font-size:0.875rem;color:#166534;line-height:1.45;">
                 <strong>Need immediate bench service?</strong><br>
-                Walk in to our Cedar Hill shop today: <strong>140 W FM 1382 Rd, Ste 177</strong> (Mon–Sat 10am–6pm) or call our technicians directly at <a href="tel:8174494211" style="font-weight:700;color:#15803d;text-decoration:underline;">(817) 449-4211</a>.
+                Walk in to our Cedar Hill shop today: <strong>140 W FM 1382 Rd, Ste 177</strong> (Mon–Sat 10am–6pm) or call our technicians directly at <a href="tel:+18174494211" style="font-weight:700;color:#15803d;text-decoration:underline;">(817) 449-4211</a>.
               </div>
             </div>
           </div>`
         );
+
+        // Fire Google Ads Conversion Tracking Event
+        if (typeof gtag_report_conversion === 'function') {
+          try {
+            gtag_report_conversion();
+          } catch (e) {
+            console.warn('Conversion tracking error:', e);
+          }
+        }
 
         form.reset();
 
@@ -445,7 +454,7 @@ function initQuoteForm() {
           <div>
             <strong style="display:block;margin-bottom:4px;color:#b91c1c;">Direct Contact Option</strong>
             <p style="margin-bottom:8px;line-height:1.45;">We couldn't connect to the quote server at this moment. You can get an instant estimate by calling our technicians directly:</p>
-            <p style="margin-bottom:10px;"><a href="tel:8174494211" style="font-size:1.125rem;font-weight:800;color:#b91c1c;text-decoration:underline;">📞 (817) 449-4211</a></p>
+            <p style="margin-bottom:10px;"><a href="tel:+18174494211" style="font-size:1.125rem;font-weight:800;color:#b91c1c;text-decoration:underline;">📞 (817) 449-4211</a></p>
             <p style="font-size:0.8125rem;color:var(--color-ink-muted);">Or visit the workshop: <strong>140 W FM 1382 Rd, Suite 177, Cedar Hill, TX 75104</strong></p>
           </div>
         </div>`
